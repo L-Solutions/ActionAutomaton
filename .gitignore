@@ -1,0 +1,17 @@
+# Exclusions générales  
+.*.swp 
+.#* 
+*~ 
+#*# 
+~$*.* 
+ 
+# Exclusions MacOS 
+.DS_Store 
+.DS_Store? 
+._* 
+.Trashes 
+ 
+.stack/
+.stack-work/
+stack.yaml.lock
+
