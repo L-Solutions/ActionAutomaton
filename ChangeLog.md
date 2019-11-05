@@ -11,4 +11,6 @@
                   - une exécution dispose de l'état courant de l'automate 
                   - celui-ci peut être modifié
                   - tout est enrobé dans des MonadTransformer
+- 2019-11-05 (BF) Suppression du main, des tests et des libs non directement relié à l'automate
+                  Mise en place sur github
 
