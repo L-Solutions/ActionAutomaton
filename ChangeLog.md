@@ -17,3 +17,5 @@
                   une nouvelle monade AutomatonExecution 'evaluate' provoque l'activation de
                   l'action même quand l'état ne change pas, tant que la transition est
                   acceptée. 
+- 2019-11-06 (BF) suppression tests superflus
+
