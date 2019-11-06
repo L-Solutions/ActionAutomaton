@@ -127,7 +127,7 @@ aut1 = Automaton s1 transitions
 aut2 = Automaton s2 transitions
 
 aex :: Label -> AExecutionIO (Outcome Output)
-aex l = get >>= \s -> evaluate (l, getName s)
+aex l = get >>= \s -> evaluateProgress (l, getName s)
 aexRun = aex Run
 aexReset = aex Reset
 aexPause = aex Pause

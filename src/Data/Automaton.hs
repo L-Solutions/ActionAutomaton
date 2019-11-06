@@ -161,16 +161,25 @@ activate :: i
 activate l = do current <- get
                 return $ getAction current l
 
+-- | 'evaluateProgress'
+--
+evaluateProgress :: Eq i
+                 => i
+                 -> AutomatonExecution i o (Outcome o)
+evaluateProgress l = do result <- transit l
+                        current <- get
+                        activateIfNewState current result
+    where activateIfNewState current (True, from)
+            | current == from = return Succeed
+            | otherwise       = activate l >>= return . Produce
+          activateIfNewState _ (False, _) = return Failed
+
 -- | 'evaluate'
 --
 evaluate :: Eq i
          => i
          -> AutomatonExecution i o (Outcome o)
 evaluate l = do result <- transit l
-                current <- get
-                activateIfNewState current result
-    where activateIfNewState current (True, from)
-              | current == from = return Succeed
-              | otherwise       = activate l >>= return . Produce
-          activateIfNewState _ (False, _) = return Failed
+                if fst result then activate l >>= return . Produce
+                          else return Failed
 

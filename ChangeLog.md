@@ -13,4 +13,7 @@
                   - tout est enrobé dans des MonadTransformer
 - 2019-11-05 (BF) Suppression du main, des tests et des libs non directement relié à l'automate
                   Mise en place sur github
-
+- 2019-11-06 (BF) 'evaluate' devient 'evaluateProgress'
+                  une nouvelle monade AutomatonExecution 'evaluate' provoque l'activation de
+                  l'action même quand l'état ne change pas, tant que la transition est
+                  acceptée. 
